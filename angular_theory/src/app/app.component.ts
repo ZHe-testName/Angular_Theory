@@ -26,6 +26,8 @@ export class AppComponent {
 
   inputText: string = '';
 
+  myNumber: number = 5;
+
   constructor() {
     setTimeout(() => {
       console.log('Timeout is over');

@@ -1,0 +1,27 @@
+<h2>directives</h2>
+
+<!-- так как связывание позволяет нам писать в разметке JS
+в данную директиву можно передать объект с инлайн стилями -->
+<div [ngStyle]="{
+    width: '200px',
+    height: '200px',
+    borderRadius: '20px',
+    border: '1px solid #ccc',
+    backgroundColor: toggleColor ? 'red' : 'blue'
+}"></div>
+
+<!--также можно писать простые манипуляции прямо в разметке  -->
+<button (click)="toggleColor = !toggleColor">Toggle</button>
+
+<!-- позволяет динамически менять классы 
+в зависимости от условия будет применен тот или иной класс -->
+<p [ngClass]="{
+    red: toggleColor,
+    blue: !toggleColor
+}">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, neque.</p>
+
+<!-- так же есть другой способ задавть классы динамически -->
+<p 
+    [class.red]="toggleColor"
+    [class.blue]="!toggleColor"
+>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, neque.</p>

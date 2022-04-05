@@ -46,4 +46,12 @@
 
 <p>{{inputText}}</p>
 
-<app-post></app-post>
+<!-- еще один способ свяки данных
+это двусторонее связывание
+данный синтаксис [()] обединяет два предыдущих способа привязок
+и позволяет делать изменения одновременно и в ПРЕДСТАВЛЕНИИ И В КОДЕ -->
+<input type="number" [(ngModel)]="myNumber">
+<br>
+<span><strong>{{myNumber}}</strong></span>
+
+<app-directives></app-directives>

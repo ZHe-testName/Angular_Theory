@@ -34,7 +34,7 @@ export class AppComponent {
 
       this.img = 'https://encrypted-tbn0.gstatic.com/\
       images?q=tbn:ANd9GcR3-XHgiNJWPedplE0FHDZFYGCygQkYNTPgAvoox4-BmuORc40M7xg0-5ZDkh-HMKdc3eY&usqp=CAU'
-    }, 4000);
+    }, 500);
   };
 
   //стандартный объект ивента нужно передавать в вызов

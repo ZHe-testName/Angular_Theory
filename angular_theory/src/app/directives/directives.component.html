@@ -25,3 +25,60 @@
     [class.red]="toggleColor"
     [class.blue]="!toggleColor"
 >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, neque.</p>
+
+<!-- СТРУКТУРНЫК ДИРЕКТИВЫ -->
+
+<!-- они исполбзуются для изменения структуры контента -->
+<!-- структурные директивы начинаются со звездочки * -->
+
+<!-- ngIf используется для отображения элемента по условию 
+для реализации else для реализации else используется шаблонная переменная-->
+<p *ngIf="toggle; else bluePar" class="red">
+    Lorem ipsum dolor sit amet consectetur.
+</p>
+
+<!-- чтобы она рaботала контент нужно обернуть в <ng-template> -->
+<ng-template #bluePar>
+    <p class="blue">
+        Lorem ipsum dolor sit amet consectetur.
+    </p>
+</ng-template>
+
+<button (click)="toggle = !toggle">Toggle</button>
+
+<!-- ngSwitchCase делает то же что и ngIf только раьотает в стиле
+аналогичного switch/case -->
+
+<!-- привязываем условие к контейнеру -->
+<div [ngSwitch]="toggle">
+    <!-- далее определяем структурные директивы которые будут работать по условию -->
+    <p *ngSwitchCase="true" class="red">Lorem, ipsum.</p>
+    <p *ngSwitchCase="false" class="blue">Lorem, ipsum dolor.</p>
+    <!-- так же есть возможность деволтного значения -->
+    <p *ngSwitchDefault="">Lorem ipsum dolor sit amet.</p>
+</div>
+
+<!-- *ngFor еще одна мощьная дтректива
+она используется для отображения данных масивов -->
+<ul>
+    <!-- так же есть доступ к index -->
+    <li *ngFor="let n of fib; let idx = index">
+        {{idx + 1}} - <strong>{{n}}</strong>
+    </li>
+</ul>
+
+<!-- более сложный пример -->
+<ul style="list-style: none">
+    <li *ngFor="let post of postsArr">
+        <p>{{post.title}}<b>{{post.author}}</b></p>
+
+        <ul>
+            <li *ngFor="let coment of post.coments">
+                <div>
+                    <small>{{coment.name}}</small>
+                    <p>{{coment.text}}</p>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>

@@ -28,6 +28,8 @@ export class AppComponent {
 
   myNumber: number = 5;
 
+  now: Date = new Date();
+
   constructor() {
     setTimeout(() => {
       console.log('Timeout is over');
